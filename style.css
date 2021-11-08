@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  padding: 50px;
+}
+
+body, input {
+  font-family: monospace;
+  font-size: 17px;
+}
+
+input {
+  background: transparent;
+  border: none;
+  font-weight: bold;
+  border-bottom: 2px solid black;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+
+input:focus {
+  outline: none;
+  border-color: #a00;
+  color: #a00;
+}
+
+input.pct {
+  width: 30px;
+}
+
+input.pop {
+  width: 120px;
+}
+
+table th {
+  text-align: left;
+}
+
+table {
+  border: 2px solid black;
+  margin: 15px 0;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  padding: 3px 6px;
+}
+
+table th {
+  background: black;
+  color: white;
+}
+
+h1 {
+  margin: 0 0 20px 0;
+}

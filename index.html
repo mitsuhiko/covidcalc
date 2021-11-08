@@ -1,0 +1,43 @@
+<!doctype html>
+<meta charset=utf-8>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<link rel=stylesheet href=style.css>
+<div id=app>
+  <h1>Geimpft im Krankenhaus</h1>
+  <div class="calculation">
+    Bei einer Bevölkerung von <input v-model="population" size=10 type=number class=pop> Menschen, davon
+    <input v-model="pctVaccinated" type=number class=pct>% geimpft:<br>
+    Die Chance symptomatisches Covid zu bekommen ist
+    <input v-model="symptomaticCovidChance" type=number class=pct>%.<br>
+    Die Wirksamkeit der Impfung ist
+    <input v-model="efficacyInfection" type=number class=pct>% gegen die Infektion und
+    <input v-model="efficacyHospitalization" type=number class=pct>% zusätzlich gegen Hospitalisierung.<br>
+    Die Chance auf eine Hospitalisierung ist
+    <input v-model="chanceHospitalization" type=number class=pct>%.
+    <table>
+      <tr>
+        <th>Ungeimpft</th>
+        <th>Geimpft</th>
+        <th>Gesamt</th>
+      </tr>
+      <tr>
+        <td><strong>{{ formatNum(unvaccinated) }}</strong> sind nicht vollständig geimpft</td>
+        <td><strong>{{ formatNum(vaccinated) }}</strong> sind vollständig geimpft</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><strong>{{ formatNum(unvaccinatedInfected) }}</strong> infizieren sich</td>
+        <td><strong>{{ formatNum(vaccinatedInfected) }}</strong> infizieren sich</td>
+        <td><strong>{{ formatNum(unvaccinatedInfected + vaccinatedInfected) }}</strong> infizieren sich</td>
+      </tr>
+      <tr>
+        <td>davon <strong>{{ formatNum(unvaccinatedHospitalized) }}</strong> im Krankenhaus</td>
+        <td>davon <strong>{{ formatNum(vaccinatedHospitalized) }}</strong> im Krankenhaus</td>
+        <td><strong>{{ formatNum(unvaccinatedHospitalized + vaccinatedHospitalized) }}</strong> im Krankenhaus</td>
+      </tr>
+    </table>
+    <strong>{{ formatNum(percentInfectedVaccianted) }}%</strong> der Infizierten sind geimpft.<br>
+    <strong>{{ formatNum(percentHospitalizedVaccianted) }}%</strong> der Hospitalisierten sind geimpft.
+  </div>
+</div>
+<script src="calc.js"></script>
