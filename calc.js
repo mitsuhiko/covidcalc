@@ -2,7 +2,7 @@ var app = new Vue({
   el: "#app",
   data: {
     population: 8916845,
-    pctVaccinated: 65,
+    pctVaccinated: 66,
     symptomaticCovidChance: 2,
     efficacyInfection: 80,
     efficacyHospitalization: 70,
